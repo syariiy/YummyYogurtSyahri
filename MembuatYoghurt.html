@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yummy Yogurt - Dunia Yogurt Homemade</title>
+    <style>
+        /* CSS Pertama */
+        :root {
+            --primary-color: #FF8E8E;
+            --secondary-color: #FFF6EA;
+            --accent-color: #FF5151;
+            --dark-color: #251B37;
+            --light-color: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--light);
+            color: var(--dark-color);
+            line-height: 1.6;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            width: 40px;
+            height: 40px;
+            margin-right: 10px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 2rem;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: var(--secondary-color);
+        }
+
+        .hero {
+            padding-top: 120px;
+            text-align: center;
+            padding-bottom: 60px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            color: var(--accent-color);
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 40px;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: var(--dark-color);
+            transform: translateY(-3px);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--accent-color);
+            color: var(--accent-color);
+            margin-left: 15px;
+        }
+
+        .btn-outline:hover {
+            background-color: var(--accent-color);
+            color: white;
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+            color: var(--accent-color);
+            font-size: 2.5rem;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background-color: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+        }
+
+        .card-content {
+            padding: 20px;
+        }
+
+        .card h3 {
+            color: var(--accent-color);
+            margin-bottom: 10px;
+        }
+
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 15px;
+            margin: 30px 0;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        form {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        textarea {
+            height: 150px;
+            resize: vertical;
+        }
+
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            margin: 0 10px;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background-color: var(--accent-color);
+            transform: translateY(-3px);
+        }
+
+        /* CSS Kedua */
+        .yogurt-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 25px;
+        }
+
+        .yogurt-card {
+            background-color: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .yogurt-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .yogurt-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .yogurt-info {
+            padding: 20px;
+        }
+
+        .yogurt-info h3 {
+            color: var(--accent-color);
+            margin-bottom: 10px;
+        }
+
+        .flavor-tag {
+            display: inline-block;
+            background-color: var(--secondary-color);
+            color: var(--accent-color);
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin-right: 8px;
+            margin-bottom: 8px;
+        }
+
+        .recipe-card {
+            background-color: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        .recipe-card h3 {
+            color: var(--accent-color);
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .recipe-card ul, .recipe-card ol {
+            margin-left: 20px;
+        }
+
+        .recipe-card li {
+            margin-bottom: 8px;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-top: 40px;
+        }
+
+        .contact-box {
+            flex: 1 1 300px;
+            background-color: white;
+            padding: 25px;
+            border-radius: 15px;
+            margin: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .contact-box i {
+            font-size: 2rem;
+            color: var(--accent-color);
+            margin-bottom: 15px;
+        }
+
+        .copyright {
+            margin-top: 20px;
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+            }
+
+            nav ul {
+                margin-top: 20px;
+            }
+
+            nav ul li {
+                margin: 0 10px;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .btn, .btn-outline {
+                display: block;
+                width: 100%;
+                margin: 10px 0;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header dengan Navigasi -->
+    <header>
+        <div class="nav-container">
+            <div class="logo">
+                <img src="yoghurt.jpg" alt="Logo Yummy Yogurt berupa ikon mangkuk yogurt dengan sendok">
+                <span>Yummy Yogurt</span>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#jenis">Jenis Yogurt</a></li>
+                    <li><a href="#resep">Resep</a></li>
+                    <li><a href="#variasi">Variasi</a></li>
+                    <li><a href="#video">Cara Buat</a></li>
+                    <li><a href="#testimoni">Testimoni</a></li>
+                    <li><a href="#kontak">Kontak</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <h1>Nikmati Lezatnya Yogurt Homemade</h1>
+            <p>Temukan berbagai jenis yogurt sehat, resep mudah pembuatan yogurt di rumah, dan kreasi unik yogurt untuk gaya hidup sehat Anda</p>
+            <a href="#resep" class="btn">Mulai Membuat</a>
+            <a href="#jenis" class="btn btn-outline">Jenis Yogurt</a>
+        </div>
+    </section>
+
+    <!-- Jenis Yogurt Section -->
+    <section id="jenis" class="section-bg">
+        <div class="container">
+            <h2 class="section-title">Pilihan Yogurt Kami</h2>
+            <div class="yogurt-grid">
+                <!-- 5 Gambar Yogurt -->
+                <div class="yogurt-card">
+                    <img src="alami.jpg" alt="Yogurt alami polos dengan tekstur kental lembut dalam mangkuk kaca diatas meja kayu">
+                    <div class="yogurt-info">
+                        <h3>Yogurt Alami</h3>
+                        <p>Yogurt murni tanpa rasa dengan bakteri baik untuk pencernaan</p>
+                        <div>
+                            <span class="flavor-tag">Plain</span>
+                            <span class="flavor-tag">Low Fat</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="yogurt-card">
+                    <img src="stroberi.jpg" alt="Yogurt rasa stroberi berwarna merah muda dengan potongan buah segar diatasnya">
+                    <div class="yogurt-info">
+                        <h3>Yogurt Stroberi</h3>
+                        <p>Manisnya stroberi segar berpadu dengan asam yogurt</p>
+                        <div>
+                            <span class="flavor-tag">Fruity</span>
+                            <span class="flavor-tag">Sweet</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="yogurt-card">
+                    <img src="blueberry.jpg" alt="Yogurt rasa blueberry berwarna ungu dengan taburan granola dan madu">
+                    <div class="yogurt-info">
+                        <h3>Yogurt Blueberry</h3>
+                        <p>Kaya antioksidan dengan rasa blueberry alami</p>
+                        <div>
+                            <span class="flavor-tag">Antioxidant</span>
+                            <span class="flavor-tag">High Fiber</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="yogurt-card">
+                    <img src="greek.jpg" alt="Yogurt Yunani kental dengan tekstur creamy berwarna putih dan sendok kayu">
+                    <div class="yogurt-info">
+                        <h3>Greek Yogurt</h3>
+                        <p>Tekstur extra kental dengan protein tinggi</p>
+                        <div>
+                            <span class="flavor-tag">High Protein</span>
+                            <span class="flavor-tag">Thick</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="yogurt-card">
+                    <img src="vanilla.jpg" alt="Yogurt rasa vanila dengan biji vanila terlihat di teksturnya di gelas bening">
+                    <div class="yogurt-info">
+                        <h3>Yogurt Vanilla</h3>
+                        <p>Aroma vanila alami dengan rasa lembut</p>
+                        <div>
+                            <span class="flavor-tag">Classic</span>
+                            <span class="flavor-tag">Aromatic</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resep Section -->
+    <section id="resep">
+        <div class="container">
+            <h2 class="section-title">Resep Yogurt Homemade</h2>
+            
+            <div class="recipe-card">
+                <h3>Resep Dasar Yogurt</h3>
+                <h4>Bahan-bahan:</h4>
+                <ul>
+                    <li>1 liter susu murni (sapi atau kambing)</li>
+                    <li>2 sendok makan yogurt plain sebagai starter</li>
+                    <li>1 sendok makan madu (opsional)</li>
+                </ul>
+                
+                <h4>Cara Membuat:</h4>
+                <ol>
+                    <li>Panaskan susu dalam panci hingga hampir mendidih (85-90°C), lalu dinginkan hingga suam-suam kuku (43-45°C)</li>
+                    <li>Tambahkan 2 sendok yogurt starter, aduk rata</li>
+                    <li>Tuang ke dalam wadah steril, tutup rapat</li>
+                    <li>Diamkan dalam tempat hangat selama 6-12 jam hingga mengental</li>
+                    <li>Simpan di kulkas minimal 2 jam sebelum disajikan</li>
+                </ol>
+            </div>
+            
+            <div class="recipe-card">
+                <h3>Yogurt Stroberi Segar</h3>
+                <h4>Bahan-bahan:</h4>
+                <ul>
+                    <li>500 ml yogurt plain</li>
+                    <li>10 buah stroberi segar</li>
+                    <li>2 sendok makan madu</li>
+                    <li>1/2 sendok teh esens vanilla (opsional)</li>
+                </ul>
+                
+                <h4>Cara Membuat:</h4>
+                <ol>
+                    <li>Blender 8 buah stroberi dengan madu hingga halus</li>
+                    <li>Campur puree stroberi dengan yogurt, aduk rata</li>
+                    <li>Tambahkan esens vanilla jika suka</li>
+                    <li>Potong 2 buah stroberi untuk topping</li>
+                    <li>Sajikan dingin dengan topping stroberi segar</li>
+                </ol>
+            </div>
+        </div>
+    </section>
+
+    <!-- Variasi Section -->
+    <section id="variasi" class="section-bg">
+        <div class="container">
+            <h2 class="section-title">Variasi Yogurt Kreatif</h2>
+            
+            <div class="grid">
+                <div class="card">
+                    <div class="card-content">
+                        <h3>Yogurt Parfait</h3>
+                        <p>Lapisan yogurt, granola, dan buah segar untuk sarapan sehat</p>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-content">
+                        <h3>Yogurt Smoothie</h3>
+                        <p>Blend yogurt dengan buah favorit untuk minuman menyegarkan</p>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-content">
+                        <h3>Yogurt Masker Wajah</h3>
+                        <p>Manfaatkan yogurt plain untuk perawatan kulit alami</p>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-content">
+                        <h3>Yogurt Frozen</h3>
+                        <p>Yogurt beku sehat sebagai alternatif es krim</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Tutorial Section -->
+    <section id="video">
+        <div class="container">
+            <h2 class="section-title">Video Tutorial Membuat Yogurt</h2>
+            
+            <div class="video-container">
+                <!-- Video cara membuat yogurt -->
+                <video autoplay loop muted playsinline>
+                     <source src="Membuat Yoghurt.mp4" type="video/mp4">
+                </video>                
+            </div>
+            
+            <div style="text-align: center; margin-top: 30px;">
+                <a href="#resep" class="btn">Lihat Resep Text</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Testimoni -->
+    <section id="testimoni" style="background-color: var(--secondary); padding: 4rem 2rem;">
+        <h2 style="text-align: center; margin-bottom: 2rem; color: var(--dark);">Testimoni</h2>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 2rem;">
+            <div style="background: white; padding: 2rem; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+                <div style="display: flex; align-items: center; margin-bottom: 1rem;">
+                    
+                    <div>
+                        <h4 style="margin: 0;">Ibu Siti</h4>
+                        <p style="margin: 0; color: #666;">37 Tahun</p>
+                    </div>
+                </div>
+                <p>"Sejak membuat yoghurt sendiri, anak-anak jadi jarang sakit perut. Rasanya juga lebih enak dari yang dijual di supermarket."</p>
+            </div>
+            
+            <div style="background: white; padding: 2rem; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+                <div style="display: flex; align-items: center; margin-bottom: 1rem;">
+                    
+                    <div>
+                        <h4 style="margin: 0;">Budi Prakoso</h4>
+                        <p style="margin: 0; color: #666;">28 Tahun</p>
+                    </div>
+                </div>
+                <p>"Resepnya sangat mudah diikuti. Sekarang saya rutin bikin yoghurt untuk sarapan sehat setiap hari."</p>
+            </div>
+            
+            <div style="background: white; padding: 2rem; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+                <div style="display: flex; align-items: center; margin-bottom: 1rem;">
+                                        <div>
+                        <h4 style="margin: 0;">Dewi Anggraeni</h4>
+                        <p style="margin: 0; color: #666;">31 Tahun</p>
+                    </div>
+                </div>
+                <p>"Yoghurt buatan sendiri lebih ekonomis dan bisa dikreasikan sesuai selera. Saya suka menambahkan madu dan kurma."</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Kontak Section -->
+    <section id="kontak">
+        <div class="container">
+            <h2 class="section-title">Hubungi Kami</h2>
+            
+            <form>
+                <div class="form-group">
+                    <label for="name">Nama Anda</label>
+                    <input type="text" id="name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="message">Pertanyaan atau Pesan</label>
+                    <textarea id="message" required></textarea>
+                </div>
+                
+                <button type="submit" class="btn">Kirim Pesan</button>
+            </form>
+            
+            <div class="contact-info">
+                <div class="contact-box">
+                    <i>📧</i>
+                    <h3>Email</h3>
+                    <p>info@yummyyogurt.com</p>
+                    <a href="mailto:info@yummyyogurt.com" class="btn" style="padding: 8px 15px; font-size: 0.9rem; margin-top: 10px;">Kirim Email</a>
+                </div>
+                
+                <div class="contact-box">
+                    <i>📱</i>
+                    <h3>WhatsApp</h3>
+                    <p>+62 812 3456 7890</p>
+                    <a href="https://wa.me/6281234567890" class="btn" style="padding: 8px 15px; font-size: 0.9rem; margin-top: 10px;">Chat Kami</a>
+                </div>
+                
+                <div class="contact-box">
+                    <i>📍</i>
+                    <h3>Lokasi</h3>
+                    <p>Jl. Yogurt Sehat No. 123, Jakarta</p>
+                    <a href="https://maps.google.com" class="btn" style="padding: 8px 15px; font-size: 0.9rem; margin-top: 10px;">Buka Maps</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="social-links">
+                <a href="#"><i>f</i></a>
+                <a href="#"><i>ig</i></a>
+                <a href="#"><i>y</i></a>
+                <a href="#"><i>t</i></a>
+            </div>
+            
+            <p>Temukan kreativitas tanpa batas dengan yogurt sehat ala Yummy Yogurt</p>
+            <p class="copyright">&copy; 2025 Yummy Yogurt. Semua Hak Dilindungi.</p>
+        </div>
+    </footer>
+
+    <script>
+        // JavaScript interaktif
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Form submission
+        const form = document.querySelector('form');
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Terima kasih! Pesan Anda telah terkirim. Kami akan segera menghubungi Anda.');
+            form.reset();
+        });
+        
+        // Animasi saat scroll
+        window.addEventListener('scroll', function() {
+            const scrollPosition = window.scrollY;
+            const header = document.querySelector('header');
+            
+            if (scrollPosition > 100) {
+                header.style.boxShadow = '0 5px 20px rgba(0, 0, 0, 0.2)';
+            } else {
+                header.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
+            }
+        });
+    </script>
+</body>
+</html>
